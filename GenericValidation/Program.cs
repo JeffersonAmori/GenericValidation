@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GenericValidation
+﻿namespace GenericValidation
 {
     class Program
     {
@@ -10,6 +8,4 @@ namespace GenericValidation
             float salary = InputValidation.GenericReadValidation<float>("Input the salary");
         }
     }
-
-    
 }

@@ -13,6 +13,7 @@ namespace GenericValidation
 
                 string input = Console.ReadLine();
                 isValid = input.TryParse(out T validatedOutput);
+                //isValid = InputValidation.TryParse(input, out T validatedOutput);
 
                 if (isValid)
                 {
@@ -39,8 +40,11 @@ namespace GenericValidation
                         Type.GetType(string.Format("{0}&", type.FullName))
                     });
 
-            output = temp;
-            return (bool)method.Invoke(null, new object[] { input, temp });
+            object[] args = new object[] { input, temp };
+            bool ret = (bool)method.Invoke(null, args);
+
+            output = (T)args[1];
+            return ret;
         }
 
         private static void ShowErrorMessage()
